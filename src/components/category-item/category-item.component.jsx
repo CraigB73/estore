@@ -1,7 +1,7 @@
 import React from 'react'
 import './category-item.styles.scss'
 const CategoryItem = ({ category }) => {
-  const { title, imageUrl } = category
+  const { title, imageUrl} = category
   return (
       <div className="category-container">
            <div className="background-image" style={{
