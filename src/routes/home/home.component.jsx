@@ -32,9 +32,8 @@ const Home = () => {
 
   return (
     <div>
-      <Outlet />
       <CategoryDirectory categories={categories} key={categories.id} />
-     
+      <Outlet />
     </div>
   ); 
 }

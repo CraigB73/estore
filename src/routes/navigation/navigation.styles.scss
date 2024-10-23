@@ -3,20 +3,23 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 25px;
 
   .logo-container {
-    height: 100%;
     width: 70px;
+    height: 100%;
     padding: 25px;
+    margin-bottom: 25px;
+   
   }
 
   .nav-links-container {
     width: 50%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    padding-top: 20px;
 
     .nav-link {
       text-decoration: none;
@@ -24,8 +27,7 @@
       cursor: pointer;
       color: rgb(55, 57, 59);
       font-family: 'Open Sans', sans-serif;
-      font-style: italic;
-      font-weight: 600;
+    
     }
   }
 }
