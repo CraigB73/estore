@@ -9,7 +9,8 @@ import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from "firebase/auth";
 // signInWithRedirect (this import will not work on browsers needs more config see docs)
 const firebaseConfig = {
@@ -74,4 +75,9 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
 
   return await createUserWithEmailAndPassword(auth, email, password);
+}
+
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) alert('Enter correct email and password.')
+  return await signInWithEmailAndPassword(auth, email, password)
 }

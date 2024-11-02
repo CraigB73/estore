@@ -16,7 +16,6 @@ const SignUpForm = () => {
   const resetFormFields = () => {
     setFormFields(defaultFormFields)
   }
-  console.log(formFields)
   const handleChange = (event) => {
     /* The {name} is a reference to the formFiled 
      object state inorder to update the state. The {name, value} is provided  */
@@ -35,7 +34,7 @@ const SignUpForm = () => {
       const{ user }= await createAuthUserWithEmailAndPassword(email, password, displayName);
      
       await createUserDocumentFromAuth(user, { displayName })
-      console.log(formFields)
+
       resetFormFields();
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
