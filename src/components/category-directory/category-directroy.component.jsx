@@ -10,6 +10,4 @@ const CategoryDirectory = ({categories}) => {
   );
 }
 
-
-
 export default CategoryDirectory

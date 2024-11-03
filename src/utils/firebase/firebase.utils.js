@@ -10,7 +10,9 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 // signInWithRedirect (this import will not work on browsers needs more config see docs)
 const firebaseConfig = {
@@ -46,9 +48,8 @@ export const createUserDocumentFromAuth = async (
   if (!userAuth) return
   
   const userDocRef = doc(db, 'users', userAuth.uid)
-  console.log(userDocRef)
-
-  // userSnapshot checks and access the data
+  
+  // userSnapshot checks if user exit and access the data
   const userSnapshot = await getDoc(userDocRef)
 
   //if user data does not exist
@@ -81,3 +82,7 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) alert('Enter correct email and password.')
   return await signInWithEmailAndPassword(auth, email, password)
 }
+
+export const signOutUser = async () => await signOut(auth)
+
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)

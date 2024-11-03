@@ -1,30 +1,31 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState} from 'react'
 import FormInput from '../form-input/form-input.component.jsx';
 import Button from '../button/button.component.jsx'
-import './sign-in-form.style.scss'
-import {
-  auth,
-  signInWithGooglePopup,
-  createUserDocumentFromAuth,
-  signInAuthUserWithEmailAndPassword,
 
+
+import {
+  signInWithGooglePopup,
+  signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils.js"
+
+import './sign-in-form.style.scss'
+
 const defaultFormFields = {
   email: '',
   password: '',
 }
+
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields)
-
-
   const { email, password } = formFields
+
+
   const resetFormFields = () => {
     setFormFields(defaultFormFields)
   }
 
   const signInWithGoogle = async () => {
-    const {user} = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   }
 
   const handleChange = (event) => {
@@ -37,8 +38,8 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const response = await signInAuthUserWithEmailAndPassword(email, password)
-     console.log(response)
+      const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+     console.log(user)
     } catch (error) {
       if (error.code === 'auth/invalid-credential') {
         alert('Invalid email and/or password!')
