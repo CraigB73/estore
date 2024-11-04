@@ -5,20 +5,11 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border: 1px solid black;
+  border: 2px solid black;
   background-color: white;
   top: 90px;
   right: 40px;
   z-index: 5;
-  
-  // Hide scrollbar for WebKit browsers
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  // Hide scrollbar for other browsers
-  -ms-overflow-style: none;  // Internet Explorer 10+
-  scrollbar-width: none;     // Firefox
 
   .empty-message {
     font-size: 18px;
